@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
-import axios from 'axios';
+import api from './utilities/axios-hook';
 import Loading from './UI/Loading';
 import image from '../assets/image.png';
 
@@ -13,18 +13,20 @@ const Quote = () => {
 
     let params = useParams();
 
-    setTimeout(() => setIsLoading(false), 400);
+    setTimeout(() => setIsLoading(false), 500);
 
     useEffect(() => {
         const fetchDataHandler = async () => {
-            const response = await axios.get(
-                'http://127.0.0.1:8000/api/posts/' + params.movieId
-            );
-            const responseData = await response.data;
+            try {
+                const response = await api.get('posts/' + params.movieId);
+                const responseData = await response.data;
 
-            setIsLoading(true);
-            setMovie(responseData);
-            return responseData;
+                setMovie(responseData);
+                setIsLoading(true);
+                return responseData;
+            } catch (error) {
+                alert(error.message);
+            }
         };
 
         fetchDataHandler();

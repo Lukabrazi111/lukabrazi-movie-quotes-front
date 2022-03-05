@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from './UI/Loading';
 
-import axios from 'axios';
+import api from './utilities/axios-hook';
 
 const Quotes = () => {
     const [quotes, setQuote] = useState([]);
@@ -13,9 +13,7 @@ const Quotes = () => {
     useEffect(() => {
         const fetchDataHandler = async () => {
             try {
-                const response = await axios.get(
-                    'http://127.0.0.1:8000/api/quotes'
-                );
+                const response = await api.get('quotes');
                 const responseData = [response.data];
 
                 setQuote(responseData);
