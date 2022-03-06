@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
@@ -6,10 +6,14 @@ import { useParams } from 'react-router-dom';
 import api from './utilities/axios-hook';
 import Loading from './UI/Loading';
 import image from '../assets/image.png';
+import LanguageContext from '../context/language-context';
 
 const Quote = () => {
+    const changeLanguageCtx = useContext(LanguageContext);
     const [movie, setMovie] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+
+    const currentLanguage = changeLanguageCtx.lang;
 
     let params = useParams();
 
@@ -50,7 +54,7 @@ const Quote = () => {
                     <section className="mt-24 text-center">
                         <div className="mb-12">
                             <p className="text-white text-3xl text-left">
-                                {movie[0]?.name.en}
+                                {movie[0]?.name[currentLanguage]}
                             </p>
                         </div>
 
@@ -59,7 +63,7 @@ const Quote = () => {
                                 <img src={image} alt="img" />
                                 <div className="mb-10 bg-white rounded p-4 text-left">
                                     <p className="text-2xl text-primary">
-                                        {quote.quote.en}
+                                        {quote.quote[currentLanguage]}
                                     </p>
                                 </div>
                             </div>

@@ -12,7 +12,8 @@ const Quotes = () => {
 
     setTimeout(() => setIsLoading(false), 1000);
 
-    const lang = changeLanguageCtx.lang;
+    const currentLanguage = changeLanguageCtx.lang;
+
 
     useEffect(() => {
         const fetchDataHandler = async () => {
@@ -52,7 +53,7 @@ const Quotes = () => {
                                 </div>
                                 <div className="mb-10">
                                     <p className="text-white text-3xl">
-                                        {quote.movie.name[lang]}
+                                        {quote.movie.name[currentLanguage]}
                                     </p>
                                 </div>
 
@@ -62,7 +63,7 @@ const Quotes = () => {
                                             to={'quote/' + quote.movie_id}
                                             className="hover:underline"
                                         >
-                                            {quote.quote[lang]}
+                                            {quote.quote[currentLanguage]}
                                         </Link>
                                     </p>
                                 </div>
