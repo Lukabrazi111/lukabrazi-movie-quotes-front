@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 
+import { Link } from 'react-router-dom';
+
 import LanguageContext from '../context/language-context';
 
 const Layout = (props) => {
@@ -21,12 +23,9 @@ const Layout = (props) => {
                 >
                     Logout
                 </a>
-                <a
-                    href="{{ route('user.index') }}"
-                    className="text-white hover:underline"
-                >
+                <Link to="/login" className="text-white hover:underline">
                     Login
-                </a>
+                </Link>
             </main>
             {props.children}
             <main className="fixed top-1/2 ml-10 flex items-center justify-center flex-col gap-2">

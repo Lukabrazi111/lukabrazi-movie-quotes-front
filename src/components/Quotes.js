@@ -14,12 +14,13 @@ const Quotes = () => {
 
     const currentLanguage = changeLanguageCtx.lang;
 
-
     useEffect(() => {
         const fetchDataHandler = async () => {
             try {
                 const response = await api.get('quotes');
                 const responseData = [response.data];
+
+                setQuote(responseData);
 
                 setQuote(responseData);
                 setIsLoading(true);
