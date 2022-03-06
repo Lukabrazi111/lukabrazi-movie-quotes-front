@@ -1,14 +1,18 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import Loading from './UI/Loading';
+import LanguageContext from '../context/language-context';
 
 import api from './utilities/axios-hook';
 
 const Quotes = () => {
+    const changeLanguageCtx = useContext(LanguageContext);
     const [quotes, setQuote] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
     setTimeout(() => setIsLoading(false), 1000);
+
+    const lang = changeLanguageCtx.lang;
 
     useEffect(() => {
         const fetchDataHandler = async () => {
@@ -48,7 +52,7 @@ const Quotes = () => {
                                 </div>
                                 <div className="mb-10">
                                     <p className="text-white text-3xl">
-                                        {quote.movie.name['en']}
+                                        {quote.movie.name[lang]}
                                     </p>
                                 </div>
 
@@ -58,7 +62,7 @@ const Quotes = () => {
                                             to={'quote/' + quote.movie_id}
                                             className="hover:underline"
                                         >
-                                            {quote.quote['en']}
+                                            {quote.quote[lang]}
                                         </Link>
                                     </p>
                                 </div>

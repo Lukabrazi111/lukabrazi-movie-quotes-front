@@ -13,7 +13,7 @@ const Quote = () => {
 
     let params = useParams();
 
-    setTimeout(() => setIsLoading(false), 500);
+    setTimeout(() => setIsLoading(false), 200);
 
     useEffect(() => {
         const fetchDataHandler = async () => {
