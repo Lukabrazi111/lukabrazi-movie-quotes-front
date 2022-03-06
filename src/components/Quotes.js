@@ -21,8 +21,6 @@ const Quotes = () => {
                 const responseData = [response.data];
 
                 setQuote(responseData);
-
-                setQuote(responseData);
                 setIsLoading(true);
                 return responseData;
             } catch (error) {

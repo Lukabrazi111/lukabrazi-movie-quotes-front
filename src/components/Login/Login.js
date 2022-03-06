@@ -2,7 +2,11 @@ import React from 'react';
 
 import Input from '../UI/Buttons/Input';
 
+import { useTranslation } from 'react-i18next';
+
 const Login = () => {
+    const { t } = useTranslation();
+
     return (
         <React.Fragment>
             <div className="bg-white shadow-md rounded px-8 pt-6 w-8/12 m-auto mt-12 pb-8 mb-4 flex flex-col">
@@ -12,13 +16,13 @@ const Login = () => {
                             className="block text-grey-darker text-sm font-bold mb-2"
                             htmlFor="email"
                         >
-                            Email
+                            {t('Email')}
                         </label>
                         <Input
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                             id="email"
                             type="email"
-                            placeholder="Email"
+                            placeholder={t('Email')}
                         />
                     </div>
                     <div className="mb-6">
@@ -26,7 +30,7 @@ const Login = () => {
                             className="block text-grey-darker text-sm font-bold mb-2"
                             htmlFor="password"
                         >
-                            Password
+                            {t('Password')}
                         </label>
                         <Input
                             className="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3"
@@ -35,7 +39,7 @@ const Login = () => {
                             placeholder="******************"
                         />
                         <p className="text-red text-xs italic">
-                            Please choose a password.
+                            {t('Please choose a password')}.
                         </p>
                     </div>
                     <div className="flex items-center justify-between">
@@ -43,7 +47,7 @@ const Login = () => {
                             className="bg-blue-400 hover:bg-blue-500 font-bold py-2 px-4 rounded"
                             type="submit"
                         >
-                            Sign In
+                            {t('Sign In')}
                         </button>
                     </div>
                 </form>
