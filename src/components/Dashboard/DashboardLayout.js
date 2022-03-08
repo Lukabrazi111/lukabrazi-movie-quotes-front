@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import { NavLink } from 'react-router-dom';
+import LanguageContext from '../../context/language-context';
 
 const DashboardLayout = (props) => {
+    const languageCtx = useContext(LanguageContext);
+    
     return (
         <React.Fragment>
             <div className="bg-gray-200 px-5 py-4 flex justify-between items-center">
@@ -33,8 +36,8 @@ const DashboardLayout = (props) => {
                             Add Quote
                         </button>
                     </div>
-                    <button className="ml-5 mr-2 hover:underline">EN</button>
-                    <button className="hover:underline">KA</button>
+                    <button onClick={languageCtx.en} className="ml-5 mr-2 hover:underline">EN</button>
+                    <button onClick={languageCtx.ka} className="hover:underline">KA</button>
                 </div>
             </div>
             {props.children}

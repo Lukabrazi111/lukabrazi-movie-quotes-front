@@ -3,5 +3,11 @@
     "Email": "ელ-ფოსტა",
     "Password": "პაროლი",
     "Please choose a password": "გთხოვთ შეარჩიოთ პაროლი",
-    "Sign In": "შესვლა"
+    "Edit": "რედაქტირება",
+    "Delete": "წაშლა",
+    "Sign In": "შესვლა",
+    "Movies": "ფილმები",
+    "Quotes": "ფრაზები",
+    "Add Movie": "ფილმის დამატება",
+    "Add Quote": "პრაზის დამატება"
 }

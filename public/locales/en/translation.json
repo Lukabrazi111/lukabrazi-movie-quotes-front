@@ -3,5 +3,11 @@
     "Email": "Email",
     "Password": "Password",
     "Please choose a password": "Please choose a password",
-    "Sign In": "Sign In"
+    "Sign In": "Sign In",
+    "Edit": "Edit",
+    "Delete": "Delete",
+    "Movies": "Movies",
+    "Quotes": "Quotes",
+    "Add Movie": "Add Movie",
+    "Add Quote": "Add Quote"
 }
