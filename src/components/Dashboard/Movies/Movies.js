@@ -1,8 +1,28 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+
 import { NavLink } from 'react-router-dom';
 import Movie from './Movie';
+import api from '../../utilities/axios-hook';
 
 const Movies = () => {
+    const [movie, setMovie] = useState([]);
+
+    useEffect(() => {
+        const fetchDataHandler = async () => {
+            try {
+                const response = await api.get('movies');
+                const responseData = response.data;
+
+                console.log(responseData);
+                setMovie(responseData);
+            } catch (error) {
+                alert(error.message);
+            }
+        };
+
+        fetchDataHandler();
+    }, []);
+
     return (
         <React.Fragment>
             <div className="bg-gray-200 px-5 py-4 flex justify-between items-center">
@@ -36,7 +56,7 @@ const Movies = () => {
                 </h1>
                 <div className="mt-12">
                     <ul className="list-none grid grid-cols-3 gap-4">
-                        <Movie />
+                        <Movie movieList={movie} />
                     </ul>
                 </div>
             </div>
