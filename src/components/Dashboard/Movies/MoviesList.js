@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 
-import Movie from './MovieList';
+import MovieList from './MovieList';
 import api from '../../utilities/axios-hook';
 import Loading from '../../UI/Loading';
 
 const Movies = () => {
     const [movie, setMovie] = useState([]);
-    const [isLoading, setIsLoading] = useState(false);
+    const [isLoading, setIsLoading] = useState(true);
 
     setTimeout(() => setIsLoading(false), 500);
 
@@ -17,7 +17,6 @@ const Movies = () => {
                 const responseData = response.data;
 
                 setMovie(responseData);
-                setIsLoading(true);
             } catch (error) {
                 alert(error.message);
             }
@@ -34,7 +33,7 @@ const Movies = () => {
                 <div className="w-full max-w-6xl mx-auto mt-12">
                     <div className="mt-12">
                         <ul className="list-none grid grid-cols-3 gap-4">
-                            <Movie movieList={movie} />
+                            <MovieList movieList={movie} />
                         </ul>
                     </div>
                 </div>

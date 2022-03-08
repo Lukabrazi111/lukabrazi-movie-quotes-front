@@ -3,9 +3,9 @@ const Movie = ({ movieList }) => {
     return (
         <React.Fragment>
             {movieList.map((movie) => (
-                <li key={movie.id} className="bg-white rounded-xl flex justify-center flex-col">
-                    <div className="border-b px-3 py-5">
-                        <p className="text-sm">{movie.name['en']}</p>
+                <li key={movie.id} className="bg-white rounded-xl flex justify-between flex-col">
+                    <div className="px-3 py-5">
+                        <p className="text-lg">{movie.name['ka']}</p>
                     </div>
                     <div className="flex">
                         <button className="bg-green-400 py-2 w-full hover:bg-green-500 rounded-bl-md">
