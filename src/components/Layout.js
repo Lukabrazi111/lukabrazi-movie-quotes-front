@@ -11,12 +11,12 @@ const Layout = (props) => {
     return (
         <React.Fragment>
             <main className="bg-primary flex justify-center items-center mt-6">
-                <a
-                    href="{{ route('admin.show') }}"
+                <Link
+                    to="/admin/movies"
                     className="text-white hover:underline mr-4"
                 >
                     Admin Panel
-                </a>
+                </Link>
                 <a
                     href="{{ route('user.logout') }}"
                     className="text-white hover:underline mr-4"

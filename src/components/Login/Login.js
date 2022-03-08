@@ -32,7 +32,7 @@ const Login = () => {
             setError({ type: true, message: errorMessage });
         }
 
-        console.log(response);
+        redirect('/admin/movies');
     };
 
     return (

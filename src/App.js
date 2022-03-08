@@ -7,6 +7,7 @@ import Quote from './components/Quote';
 import { LanguageProvider } from './context/language-context';
 import Login from './components/Login/Login';
 import Layout from './components/Layout';
+import Movies from './components/Dashboard/Movies/Movies';
 
 function App() {
     return (
@@ -16,6 +17,7 @@ function App() {
                     <Route path="/" exact element={<Layout><Quotes /></Layout>} />
                     <Route path="/quote/:movieId" element={<Layout><Quote /></Layout>} />
                     <Route path="/login" element={<Layout><Login /></Layout>} />
+                    <Route path="/admin/movies" element={<Movies />} />
                 </Routes>
             </BrowserRouter>
         </LanguageProvider>
