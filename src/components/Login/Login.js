@@ -1,16 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-import Input from '../UI/Buttons/Input';
-
+import axios from 'axios';
 import { useTranslation } from 'react-i18next';
+import { useForm } from 'react-hook-form';
+import api from '../utilities/axios-hook';
+import { useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const { t } = useTranslation();
+    const redirect = useNavigate();
+    const [error, setError] = useState({ type: false, message: '' });
+
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
+        defaultValues: {
+            email: '',
+            password: '',
+        },
+    });
+
+    const submitFormHandler = async (data) => {
+        await axios.get('http://localhost:8000/sanctum/csrf-cookie');
+        const response = await api.post('login-user', data);
+
+        const errorMessage = response.data.message;
+
+        if (!response.ok) {
+            setError({ type: true, message: errorMessage });
+        }
+
+        console.log(response);
+    };
 
     return (
         <React.Fragment>
             <div className="bg-white shadow-md rounded px-8 pt-6 w-8/12 m-auto mt-12 pb-8 mb-4 flex flex-col">
-                <form>
+                <form
+                    onSubmit={handleSubmit(submitFormHandler)}
+                    encType="multipart/form-data"
+                >
                     <div className="mb-4">
                         <label
                             className="block text-grey-darker text-sm font-bold mb-2"
@@ -18,12 +49,18 @@ const Login = () => {
                         >
                             {t('Email')}
                         </label>
-                        <Input
+                        <input
+                            {...register('email', {
+                                required: 'Email field is required',
+                            })}
                             className="shadow appearance-none border rounded w-full py-2 px-3 text-grey-darker"
                             id="email"
                             type="email"
                             placeholder={t('Email')}
                         />
+                        <small className="text-red-500">
+                            {errors.email?.message}
+                        </small>
                     </div>
                     <div className="mb-6">
                         <label
@@ -32,15 +69,25 @@ const Login = () => {
                         >
                             {t('Password')}
                         </label>
-                        <Input
-                            className="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker mb-3"
+                        <input
+                            {...register('password', {
+                                required: 'Password field is required',
+                            })}
+                            className="shadow appearance-none border border-red rounded w-full py-2 px-3 text-grey-darker"
                             id="password"
                             type="password"
                             placeholder="******************"
                         />
-                        <p className="text-red text-xs italic">
-                            {t('Please choose a password')}.
-                        </p>
+                        <small className="text-red-500">
+                            {errors.password?.message}
+                        </small>
+                        <div className="text-red text-xs italic mt-3">
+                            {!error.type ? (
+                                t('Please choose a password')
+                            ) : (
+                                <p className="text-red-500">{error.message}</p>
+                            )}
+                        </div>
                     </div>
                     <div className="flex items-center justify-between">
                         <button
