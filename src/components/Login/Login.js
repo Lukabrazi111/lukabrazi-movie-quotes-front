@@ -32,10 +32,6 @@ const Login = () => {
 
             if (token) {
                 authCtx.login(token);
-                /**
-                 * use window.location because
-                 * (404 page) blinking 
-                 */
                 window.location.href = '/admin/movies';
             } else {
                 setError({ type: true, message: errorMessage });
