@@ -1,15 +1,17 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import api from '../utilities/axios-hook';
 import { useNavigate } from 'react-router-dom';
+import AuthContext from '../../context/auth-context';
 
 const Login = () => {
     const { t } = useTranslation();
     const redirect = useNavigate();
     const [error, setError] = useState({ type: false, message: '' });
+    const authCtx = useContext(AuthContext);
 
     const {
         register,
@@ -23,16 +25,23 @@ const Login = () => {
     });
 
     const submitFormHandler = async (data) => {
-        await axios.get('http://localhost:8000/sanctum/csrf-cookie');
-        const response = await api.post('login-user', data);
+        try {
+            await axios.get('http://localhost:8000/sanctum/csrf-cookie');
+            const response = await api.post('login-user', data);
 
-        const errorMessage = response.data.message;
+            const errorMessage = response.data.message;
+            const token = response.data.access_token;
 
-        if (!response.ok) {
-            setError({ type: true, message: errorMessage });
+            if (token) {
+                authCtx.login(token);
+                redirect('/admin/movies');
+                window.location.reload(false);
+            } else {
+                setError({ type: true, message: errorMessage });
+            }
+        } catch (error) {
+            alert(error.message);
         }
-
-        redirect('/admin/movies');
     };
 
     return (

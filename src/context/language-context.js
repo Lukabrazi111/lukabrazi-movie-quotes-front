@@ -2,7 +2,7 @@ import React from 'react';
 
 import { useTranslation } from 'react-i18next';
 
-export const LanguageContext = React.createContext({
+const LanguageContext = React.createContext({
     lang: localStorage.setItem('i18nextLng', 'en'),
     en: () => {},
     ka: () => {},

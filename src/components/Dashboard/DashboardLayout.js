@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
 
+import { FaAngleLeft } from 'react-icons/fa';
+
 import { NavLink } from 'react-router-dom';
 import LanguageContext from '../../context/language-context';
 
@@ -8,8 +10,11 @@ const DashboardLayout = (props) => {
 
     return (
         <React.Fragment>
-            <div className="bg-gray-200 px-5 py-4 flex justify-between items-center">
-                <div className="bg-gray-400 rounded py-2 px-3">
+            <div className="bg-gray-200 px-5 py-4 flex justify-between items-center relative">
+                <div className="bg-gray-400 rounded py-2 px-3 ml-12">
+                    <a href={'/'} className="bg-gray-200 absolute left-2">
+                        <FaAngleLeft className="text-2xl" />
+                    </a>
                     <NavLink
                         to={'/admin/movies'}
                         className={({ isActive }) =>
