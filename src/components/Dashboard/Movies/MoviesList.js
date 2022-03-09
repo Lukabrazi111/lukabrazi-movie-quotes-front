@@ -8,7 +8,7 @@ const Movies = () => {
     const [movie, setMovie] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    setTimeout(() => setIsLoading(false), 800);
+    setTimeout(() => setIsLoading(false), 500);
 
     useEffect(() => {
         const fetchDataHandler = async () => {

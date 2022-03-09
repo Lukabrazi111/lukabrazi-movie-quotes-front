@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { FaAngleLeft } from 'react-icons/fa';
 
@@ -6,6 +7,7 @@ import { NavLink } from 'react-router-dom';
 import LanguageContext from '../../context/language-context';
 
 const DashboardLayout = (props) => {
+    const { t } = useTranslation();
     const languageCtx = useContext(LanguageContext);
 
     return (
@@ -21,7 +23,7 @@ const DashboardLayout = (props) => {
                             `mr-2 ${isActive ? 'underline' : ''}`
                         }
                     >
-                        Movies
+                        {t('Movies')}
                     </NavLink>
                     <NavLink
                         to={'/admin/quotes'}
@@ -29,16 +31,16 @@ const DashboardLayout = (props) => {
                             isActive ? 'underline' : ''
                         }
                     >
-                        Quotes
+                        {t('Quotes')}
                     </NavLink>
                 </div>
                 <div className="flex">
                     <div className="space-x-4">
                         <button className="bg-blue-400 py-2 px-9 hover:bg-blue-500">
-                            Add Movie
+                            {t('Add Movie')}
                         </button>
                         <button className="bg-blue-400 py-2 px-9 hover:bg-blue-500">
-                            Add Quote
+                            {t('Add Quote')}
                         </button>
                     </div>
                     <button
