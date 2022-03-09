@@ -40,34 +40,34 @@ const AddMovie = (props) => {
                     className={'flex flex-col space-y-3'}
                 >
                     <label htmlFor="enName" className="text-white">
-                        English name
+                        {t('English name')}
                     </label>
                     <input
                         {...register('enName', {
-                            required: 'Please fill all fields',
+                            required: t('Please fill all fields'),
                         })}
                         type="text"
                         id="enName"
-                        placeholder="English name"
+                        placeholder={t('English name')}
                         className="px-2 py-3 border-none outline-none rounded-md"
                     />
                     <label htmlFor="kaName" className="text-white">
-                        Georgian name
+                        {t('Georgian name')}
                     </label>
                     <input
                         {...register('kaName', {
-                            required: 'Please fill all fields',
+                            required: t('Please fill all fields'),
                         })}
                         type="text"
                         id="kaName"
-                        placeholder="Georgian name"
+                        placeholder={t('Georgian name')}
                         className="px-2 py-3 border-none outline-none rounded-md"
                     />
                     <button
                         type="submit"
                         className="bg-blue-100 py-3 rounded-md hover:bg-blue-400 hover:text-white transition-colors"
                     >
-                        Add Movie
+                        {t('Add Movie')}
                     </button>
                     <div className="text-red-400 text-center">
                         {errors.enName?.message || errors.kaName?.message}
