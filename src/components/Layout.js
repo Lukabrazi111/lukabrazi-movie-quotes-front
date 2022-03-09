@@ -23,6 +23,10 @@ const Layout = (props) => {
                             Admin Panel
                         </Link>
                         <Link
+                            onClick={() => {
+                                authCtx.logout();
+                                window.location.reload(true);
+                            }}
                             to="/"
                             className="text-white hover:underline mr-4"
                         >
