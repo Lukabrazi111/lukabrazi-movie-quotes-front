@@ -16,6 +16,16 @@ const QuoteList = ({ quotesList }) => {
                     className="bg-white rounded-xl flex justify-between flex-col"
                 >
                     <div className="px-3 py-5 text-center">
+                        <div>
+                            <img
+                                src={
+                                    process.env.REACT_APP_IMAGE_URL +
+                                    quote.thumbnail
+                                }
+                                alt={quote.movie.name['en']}
+                                className="mb-3 rounded-md object-cover w-full h-48"
+                            />
+                        </div>
                         <p className="text-lg mb-3">
                             {quote.movie.name[currentLanguage]}
                         </p>

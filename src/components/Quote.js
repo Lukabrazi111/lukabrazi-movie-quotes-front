@@ -60,7 +60,13 @@ const Quote = () => {
 
                         {movie[0]?.quotes.map((quote) => (
                             <div key={quote.id} className="mb-6">
-                                <img src={image} alt="img" />
+                                <img
+                                    src={
+                                        process.env.REACT_APP_IMAGE_URL +
+                                        quote.thumbnail
+                                    }
+                                    alt="img"
+                                />
                                 <div className="mb-10 bg-white rounded p-4 text-left">
                                     <p className="text-2xl text-primary">
                                         {quote.quote[currentLanguage]}

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import LanguageContext from '../../../context/language-context';
+import Login from '../../Login/Login';
 
 const Movie = ({ movieList }) => {
     const { t } = useTranslation();
@@ -17,6 +18,16 @@ const Movie = ({ movieList }) => {
                     className="bg-white rounded-xl flex justify-between flex-col"
                 >
                     <div className="px-3 py-5">
+                        <div>
+                            <img
+                                src={
+                                    process.env.REACT_APP_IMAGE_URL +
+                                    movie?.quotes[0].thumbnail
+                                }
+                                alt={'asd'}
+                                className="mb-3 rounded-md object-cover w-full h-48"
+                            />
+                        </div>
                         <p className="text-lg">{movie.name[currentLanguage]}</p>
                     </div>
                     <div className="flex">
