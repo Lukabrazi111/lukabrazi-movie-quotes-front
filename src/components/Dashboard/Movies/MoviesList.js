@@ -6,13 +6,14 @@ import Loading from '../../UI/Loading';
 
 const Movies = () => {
     const [movie, setMovie] = useState([]);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
-    setTimeout(() => setIsLoading(false), 500);
+    setTimeout(() => setIsLoading(false), 800);
 
     useEffect(() => {
         const fetchDataHandler = async () => {
             try {
+                setIsLoading(true);
                 const response = await api.get('movies');
                 const responseData = response.data;
 

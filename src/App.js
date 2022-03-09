@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 
 import { Routes, Route } from 'react-router-dom';
 import Quotes from './components/Quotes';
@@ -16,20 +16,17 @@ import NotFound from './components/Error/NotFound';
 function App() {
     const authCtx = useContext(AuthContext);
 
-    console.log(authCtx.isLoggedIn);
-
-
     return (
-            <LanguageProvider>
-                    <Routes>
-                        <Route path="/" exact element={<Layout><Quotes /></Layout>}/>
-                        <Route path="/quote/:movieId" element={<Layout><Quote /></Layout>} />
-                        <Route path="/login" element={<Layout><Login /></Layout>} />
-                        <Route path="/admin/movies" element={<DashboardLayout><MoviesList /></DashboardLayout>} />
-                        <Route path="/admin/quotes" element={<DashboardLayout><QuotesList /></DashboardLayout>} />
-                        {/* <Route path={'*'} element={<Layout><NotFound/></Layout>} /> */}
-                    </Routes>
-            </LanguageProvider>
+        <LanguageProvider>
+            <Routes>
+                <Route path="/" exact element={<Layout><Quotes /></Layout>}/>
+                <Route path="/quote/:movieId" exact element={<Layout><Quote /></Layout>} />
+                {!authCtx.isLoggedIn && <Route path="/login" exact element={<Layout><Login /></Layout>} />}
+                {authCtx.isLoggedIn && <Route path="/admin/movies" exact element={<DashboardLayout><MoviesList /></DashboardLayout>} />}
+                {authCtx.isLoggedIn && <Route path="/admin/quotes" exact element={<DashboardLayout><QuotesList /></DashboardLayout>} />}
+                <Route path="*" element={<Layout><NotFound/></Layout>} />
+            </Routes>
+        </LanguageProvider>
     );
 }
 

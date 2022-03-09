@@ -4,12 +4,10 @@ import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import api from '../utilities/axios-hook';
-import { useNavigate } from 'react-router-dom';
 import AuthContext from '../../context/auth-context';
 
 const Login = () => {
     const { t } = useTranslation();
-    const redirect = useNavigate();
     const [error, setError] = useState({ type: false, message: '' });
     const authCtx = useContext(AuthContext);
 
@@ -34,8 +32,11 @@ const Login = () => {
 
             if (token) {
                 authCtx.login(token);
-                redirect('/admin/movies');
-                window.location.reload(false);
+                /**
+                 * use window.location because
+                 * (404 page) blinking 
+                 */
+                window.location.href = '/admin/movies';
             } else {
                 setError({ type: true, message: errorMessage });
             }
