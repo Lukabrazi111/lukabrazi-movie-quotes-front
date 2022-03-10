@@ -3,10 +3,7 @@ import ReactDOM from 'react-dom';
 
 const Backdrop = (props) => {
     return (
-        <div
-            onClick={props.onClose}
-            className={'fixed top-0 left-0 w-full h-screen bg-backdrop z-10'}
-        >
+        <div onClick={props.onCloseQuote} className={'fixed top-0 left-0 w-full h-screen bg-backdrop z-10'}>
             {props.children}
         </div>
     );
@@ -24,11 +21,11 @@ const ModalOverlay = (props) => {
     );
 };
 
-const Modal = (props) => {
+const QuoteModal = (props) => {
     return (
         <React.Fragment>
             {ReactDOM.createPortal(
-                <Backdrop onClose={props.onClose} />,
+                <Backdrop onCloseQuote={props.onCloseQuote} />,
                 document.getElementById('overlays')
             )}
             {ReactDOM.createPortal(
@@ -39,4 +36,4 @@ const Modal = (props) => {
     );
 };
 
-export default Modal;
+export default QuoteModal;

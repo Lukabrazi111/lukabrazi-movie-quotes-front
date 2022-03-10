@@ -1,6 +1,6 @@
 import React from 'react';
 
-import Modal from '../../UI/Modal';
+import Modal from '../../UI/Modal/MovieModal';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import api from '../../utilities/axios-hook';
@@ -33,7 +33,7 @@ const AddMovie = (props) => {
     };
 
     return (
-        <Modal onClose={props.onClose}>
+        <Modal onCloseMovie={props.onClose}>
             <div>
                 <form
                     onSubmit={handleSubmit(submitFormHandler)}

@@ -1,29 +1,38 @@
 import React, { useContext, useState } from 'react';
+
 import { useTranslation } from 'react-i18next';
-
 import { FaAngleLeft } from 'react-icons/fa';
-
 import { Link, NavLink } from 'react-router-dom';
 import LanguageContext from '../../context/language-context';
 import AddMovie from './Movies/AddMovie';
+import AddQuote from './Quotes/AddQuote';
 
 const DashboardLayout = (props) => {
     const { t } = useTranslation();
     const languageCtx = useContext(LanguageContext);
-    const [showModal, setShowModal] = useState(false);
+    const [showAddMovieModal, setshowAddMovieModal] = useState(false);
+    const [showAddQuoteModal, setShowAddQuoteModal] = useState(false);
 
-    const showModalHandler = () => {
-        setShowModal(true);
+    const showMovieModalHandler = () => {
+        setshowAddMovieModal(true);
     };
 
-    const closeModalHandler = () => {
-        setShowModal(false);
+    const closeMovieModalHandler = () => {
+        setshowAddMovieModal(false);
+    };
+
+    const showQuoteModalHandler = () => {
+        setShowAddQuoteModal(true);
+    };
+
+    const closeQuoteModalHandler = () => {
+        setShowAddQuoteModal(false);
     };
 
     return (
         <React.Fragment>
-            {showModal && <AddMovie onClose={closeModalHandler} />}
-
+            {showAddMovieModal && <AddMovie onClose={closeMovieModalHandler} />}
+            {showAddQuoteModal && <AddQuote onClose={closeQuoteModalHandler} />}
             <div className="bg-gray-200 px-5 py-4 flex justify-between items-center relative">
                 <div className="bg-gray-400 rounded py-2 px-3 ml-12">
                     <Link to={'/'} className="bg-gray-200 absolute left-2">
@@ -49,12 +58,15 @@ const DashboardLayout = (props) => {
                 <div className="flex">
                     <div className="space-x-4">
                         <button
-                            onClick={showModalHandler}
+                            onClick={showMovieModalHandler}
                             className="bg-blue-400 py-2 px-9 hover:bg-blue-500"
                         >
                             {t('Add Movie')}
                         </button>
-                        <button className="bg-blue-400 py-2 px-9 hover:bg-blue-500">
+                        <button
+                            onClick={showQuoteModalHandler}
+                            className="bg-blue-400 py-2 px-9 hover:bg-blue-500"
+                        >
                             {t('Add Quote')}
                         </button>
                     </div>
