@@ -28,6 +28,17 @@ const Movie = ({movieList}) => {
         }
     };
 
+    const deleteMovieHandler = async (id) => {
+        try {
+            const response = await api.get(`/remove-movie/${id}`);
+            if(response.status === 200) {
+                window.location.reload(true);
+            }
+        }catch (error) {
+            alert(error.message);
+        }
+    };
+
     return (<React.Fragment>
             {showEditMovieModal && <EditMovie movie={movie} onClose={closeModalHandler}/>}
             {movieList.map((movie) => (<li
@@ -42,7 +53,7 @@ const Movie = ({movieList}) => {
                                 className="bg-green-400 py-2 w-full hover:bg-green-500 rounded-bl-md">
                             {t('Edit')}
                         </button>
-                        <button className="bg-red-400 py-2 w-full hover:bg-red-500 rounded-br-md">
+                        <button onClick={() => deleteMovieHandler(movie.id)} className="bg-red-400 py-2 w-full hover:bg-red-500 rounded-br-md">
                             {t('Delete')}
                         </button>
                     </div>
