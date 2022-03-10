@@ -101,7 +101,7 @@ const AddQuote = (props) => {
                 />
                 {isLoading ? <Loading/> : <div>
                     <div className="my-4 text-center">
-                        <p className="text-white font-bold text-lg">Movie</p>
+                        <p className="text-white font-bold text-lg">{t('Movies')}</p>
                         <select
                             {...register('movieId')}
                             className="w-full py-2 my-1 mb-3 rounded outline-none px-3"
