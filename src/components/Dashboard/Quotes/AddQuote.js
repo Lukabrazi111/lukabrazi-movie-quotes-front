@@ -1,14 +1,17 @@
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {useForm} from 'react-hook-form';
 
 import {useTranslation} from 'react-i18next';
 import QuoteModal from '../../UI/Modal/QuoteModal';
 import api from '../../utilities/axios-hook';
 import Loading from "../../UI/Loading";
+import LanguageContext from "../../../context/language-context";
 
 const AddQuote = (props) => {
     const {t} = useTranslation();
     const [isLoading, setIsLoading] = useState(false);
+    const langCtx = useContext(LanguageContext);
+    const [movies, setMovies] = useState([]);
 
     const {
         register, handleSubmit, formState: {errors},
@@ -17,6 +20,21 @@ const AddQuote = (props) => {
             enQuote: '', kaQuote: '', movieId: '', quoteImg: '',
         },
     });
+
+    useEffect(() => {
+        const fetchMoviesHandler = async () => {
+            try {
+                const response = await api.get('/all-movies');
+                const responseData = await response.data;
+
+                setMovies(responseData);
+            } catch (error) {
+                alert(error.message);
+            }
+        };
+
+        fetchMoviesHandler();
+    }, [])
 
     const submitFormHandler = async (data) => {
         try {
@@ -43,8 +61,6 @@ const AddQuote = (props) => {
             setIsLoading(false);
             alert(error.message);
         }
-
-
     };
 
     return (<QuoteModal onCloseQuote={props.onClose}>
@@ -90,7 +106,9 @@ const AddQuote = (props) => {
                             {...register('movieId')}
                             className="w-full py-2 my-1 mb-3 rounded outline-none px-3"
                         >
-                            <option value={'1'}>movie name</option>
+                            {movies.map(movie => (
+                                <option key={movie.id} value={movie.id}>{movie.name[langCtx.lang]}</option>
+                            ))}
                         </select>
                     </div>
                     <button
