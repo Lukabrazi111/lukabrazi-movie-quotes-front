@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 
 import MovieList from './MovieList';
 import api from '../../utilities/axios-hook';
 import Loading from '../../UI/Loading';
+import DashboardLayout from "../DashboardLayout";
 
 const Movies = () => {
     const [movie, setMovie] = useState([]);
@@ -28,17 +29,19 @@ const Movies = () => {
 
     return (
         <React.Fragment>
-            {isLoading ? (
-                <Loading />
-            ) : (
-                <div className="w-full max-w-6xl mx-auto mt-12">
-                    <div className="mt-12">
-                        <ul className="list-none grid grid-cols-3 gap-4">
-                            <MovieList movieList={movie} />
-                        </ul>
+            <DashboardLayout>
+                {isLoading ? (
+                    <Loading/>
+                ) : (
+                    <div className="w-full max-w-6xl mx-auto mt-12">
+                        <div className="mt-12">
+                            <ul className="list-none grid grid-cols-3 gap-4">
+                                <MovieList movieList={movie}/>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-            )}
+                )}
+            </DashboardLayout>
         </React.Fragment>
     );
 };
