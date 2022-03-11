@@ -14,7 +14,7 @@ const EditQuote = (props) => {
     const quote = props.quote[0];
     const quoteId = quote.id;
 
-    const {register, handleSubmit} = useForm({
+    const {register, handleSubmit, formState: {errors}} = useForm({
         defaultValues: {
             enQuote: quote.quote['en'],
             kaQuote: quote.quote['ka'],
@@ -99,7 +99,9 @@ const EditQuote = (props) => {
                         className="px-2 py-3 border-none outline-none rounded-md"
                     />
                     <input
-                        {...register('quoteImg')}
+                        {...register('quoteImg', {
+                            required: 'Please select image',
+                        })}
                         type="file"
                     />
                     {isLoading ? <Loading/> : (<div>
@@ -120,6 +122,9 @@ const EditQuote = (props) => {
                         >
                             {t('Add Quote')}
                         </button>
+                        <div className="text-red-400 text-center mt-4">
+                            {errors.quoteImg?.message}
+                        </div>
                     </div>)}
                 </form>
             </div>
