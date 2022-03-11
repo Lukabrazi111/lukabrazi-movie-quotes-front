@@ -52,7 +52,7 @@ const AddQuote = (props) => {
                 },
             });
 
-            if (response.status === 201) {
+            if (response) {
                 setIsLoading(false);
                 window.location.href = '/admin/quotes';
             }

@@ -1,15 +1,37 @@
-import React, { useContext } from 'react';
-import { useTranslation } from 'react-i18next';
-import LanguageContext from '../../../context/language-context';
+import React, {useContext, useState} from 'react';
 
-const QuoteList = ({ quotesList }) => {
-    const { t } = useTranslation();
+import {useTranslation} from 'react-i18next';
+import LanguageContext from '../../../context/language-context';
+import EditQuote from "./EditQuote";
+import api from '../../utilities/axios-hook';
+
+const QuoteList = ({quotesList}) => {
+    const {t} = useTranslation();
     const languageCtx = useContext(LanguageContext);
+    const [showEditModal, setShowEditModal] = useState(false);
+    const [quote, setQuote] = useState([]);
 
     const currentLanguage = languageCtx.lang;
 
+    const closeModalHandler = () => {
+        setShowEditModal(false);
+    };
+
+    const showModalHandler = async (id) => {
+        try {
+            const response = await api.get(`/show-quote/${id}`);
+            const responseData = await response.data;
+
+            setQuote(responseData);
+            setShowEditModal(true);
+        } catch (error) {
+            alert(error.message);
+        }
+    };
+
     return (
         <React.Fragment>
+            {showEditModal && <EditQuote quote={quote} onClose={closeModalHandler}/>}
             {quotesList.map((quote) => (
                 <li
                     key={quote.id}
@@ -22,7 +44,7 @@ const QuoteList = ({ quotesList }) => {
                                     process.env.REACT_APP_IMAGE_URL +
                                     quote.thumbnail
                                 }
-                                alt={quote.movie.name['en']}
+                                alt={quote.movie.name[currentLanguage]}
                                 className="mb-3 rounded-md object-cover w-full h-48"
                             />
                         </div>
@@ -34,7 +56,9 @@ const QuoteList = ({ quotesList }) => {
                         </p>
                     </div>
                     <div className="flex">
-                        <button className="bg-green-400 py-2 w-full hover:bg-green-500 rounded-bl-md">
+                        <button
+                            onClick={() => showModalHandler(quote.id)}
+                            className="bg-green-400 py-2 w-full hover:bg-green-500 rounded-bl-md">
                             {t('Edit')}
                         </button>
                         <button className="bg-red-400 py-2 w-full hover:bg-red-500 rounded-br-md">
