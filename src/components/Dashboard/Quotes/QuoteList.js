@@ -29,6 +29,20 @@ const QuoteList = ({quotesList}) => {
         }
     };
 
+    const deleteQuoteHandler = async (id) => {
+        try {
+            const response = await api.get(`/remove-quote/${id}`);
+            const responseData = await response.data;
+
+            if(responseData) {
+                window.location.reload(true);
+            }
+        }catch(error) {
+            alert(error.message);
+        }
+
+    };
+
     return (
         <React.Fragment>
             {showEditModal && <EditQuote quote={quote} onClose={closeModalHandler}/>}
@@ -61,7 +75,9 @@ const QuoteList = ({quotesList}) => {
                             className="bg-green-400 py-2 w-full hover:bg-green-500 rounded-bl-md">
                             {t('Edit')}
                         </button>
-                        <button className="bg-red-400 py-2 w-full hover:bg-red-500 rounded-br-md">
+                        <button
+                            onClick={() => deleteQuoteHandler(quote.id)}
+                            className="bg-red-400 py-2 w-full hover:bg-red-500 rounded-br-md">
                             {t('Delete')}
                         </button>
                     </div>
