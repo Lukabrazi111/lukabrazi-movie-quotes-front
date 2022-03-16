@@ -46,7 +46,7 @@ const AddQuote = (props) => {
             formData.append('enQuote', data.enQuote);
             formData.append('kaQuote', data.kaQuote);
 
-            const response = await api.post('add-quote', formData, {
+            const response = await api.post('quote', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 },

@@ -22,7 +22,7 @@ const Quote = () => {
     useEffect(() => {
         const fetchDataHandler = async () => {
             try {
-                const response = await api.get('posts/' + params.movieId);
+                const response = await api.get('movies/' + params.movieId);
                 const responseData = await response.data;
 
                 setMovie(responseData);

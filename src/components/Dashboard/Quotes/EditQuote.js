@@ -53,7 +53,7 @@ const EditQuote = (props) => {
             formData.append('kaQuote', data.kaQuote);
             formData.set('movieId', data.movieId);
 
-            const response = await api.post(`/edit-quote/${quoteId}`, formData, {
+            const response = await api.post(`/quote/${quoteId}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                 }

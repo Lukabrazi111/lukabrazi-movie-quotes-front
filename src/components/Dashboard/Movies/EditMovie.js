@@ -19,7 +19,7 @@ const EditMovie = (props) => {
 
     const submitMovieHandler = async (data) => {
         try {
-            const response = await api.put(`/edit-movie/${movieId}`, data);
+            const response = await api.put(`/movie/${movieId}`, data);
             if (response.status === 200) {
                 window.location.reload(true);
             }

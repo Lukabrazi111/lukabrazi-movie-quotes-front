@@ -18,7 +18,7 @@ const Movie = ({movieList}) => {
 
     const showEditModalHandler = async (id) => {
         try {
-            const response = await api.get(`/show-movie/${id}`);
+            const response = await api.get(`/movie/${id}`);
             const responseData = await response.data;
 
             setMovie(responseData);
@@ -30,35 +30,36 @@ const Movie = ({movieList}) => {
 
     const deleteMovieHandler = async (id) => {
         try {
-            const response = await api.get(`/remove-movie/${id}`);
-            if(response.status === 200) {
+            const response = await api.delete(`/movie/${id}`);
+            if (response.status === 200) {
                 window.location.reload(true);
             }
-        }catch (error) {
+        } catch (error) {
             alert(error.message);
         }
     };
 
     return (<React.Fragment>
-            {showEditMovieModal && <EditMovie movie={movie} onClose={closeModalHandler}/>}
-            {movieList.map((movie) => (<li
-                    key={movie.id}
-                    className="bg-white rounded-xl flex justify-between flex-col"
-                >
-                    <div className="px-3 py-5">
-                        <p className="text-lg">{movie.name[currentLanguage]}</p>
-                    </div>
-                    <div className="flex">
-                        <button onClick={() => showEditModalHandler(movie.id)}
-                                className="bg-green-400 py-2 w-full hover:bg-green-500 rounded-bl-md">
-                            {t('Edit')}
-                        </button>
-                        <button onClick={() => deleteMovieHandler(movie.id)} className="bg-red-400 py-2 w-full hover:bg-red-500 rounded-br-md">
-                            {t('Delete')}
-                        </button>
-                    </div>
-                </li>))}
-        </React.Fragment>);
+        {showEditMovieModal && <EditMovie movie={movie} onClose={closeModalHandler}/>}
+        {movieList.map((movie) => (<li
+            key={movie.id}
+            className="bg-white rounded-xl flex justify-between flex-col"
+        >
+            <div className="px-3 py-5">
+                <p className="text-lg">{movie.name[currentLanguage]}</p>
+            </div>
+            <div className="flex">
+                <button onClick={() => showEditModalHandler(movie.id)}
+                        className="bg-green-400 py-2 w-full hover:bg-green-500 rounded-bl-md">
+                    {t('Edit')}
+                </button>
+                <button onClick={() => deleteMovieHandler(movie.id)}
+                        className="bg-red-400 py-2 w-full hover:bg-red-500 rounded-br-md">
+                    {t('Delete')}
+                </button>
+            </div>
+        </li>))}
+    </React.Fragment>);
 };
 
 export default Movie;

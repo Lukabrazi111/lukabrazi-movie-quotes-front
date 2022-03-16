@@ -19,7 +19,7 @@ const QuoteList = ({quotesList}) => {
 
     const showModalHandler = async (id) => {
         try {
-            const response = await api.get(`/show-quote/${id}`);
+            const response = await api.get(`/quote/${id}`);
             const responseData = await response.data;
 
             setQuote(responseData);
@@ -31,7 +31,7 @@ const QuoteList = ({quotesList}) => {
 
     const deleteQuoteHandler = async (id) => {
         try {
-            const response = await api.get(`/remove-quote/${id}`);
+            const response = await api.delete(`/quote/${id}`);
             const responseData = await response.data;
 
             if(responseData) {
