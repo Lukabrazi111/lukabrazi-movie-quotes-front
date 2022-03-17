@@ -1,25 +1,33 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
-import {useTranslation} from "react-i18next";
-import EditMovieModal from "../../UI/Modal/EditMovieModal";
-import {useForm} from "react-hook-form";
-import api from "../../utilities/axios-hook";
+import { useTranslation } from 'react-i18next';
+import EditMovieModal from '../../UI/Modal/EditMovieModal';
+import { useForm } from 'react-hook-form';
+import api from '../../utilities/axios-hook';
+import AuthContext from '../../../context/auth-context';
 
 const EditMovie = (props) => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
+    const authCtx = useContext(AuthContext);
 
     const movieName = props.movie[0].name;
     const movieId = props.movie[0].id;
 
-    const {register, handleSubmit} = useForm({
+    const { register, handleSubmit } = useForm({
         defaultValues: {
-            enMovie: movieName['en'], kaMovie: movieName['ka'],
-        }
+            enMovie: movieName['en'],
+            kaMovie: movieName['ka'],
+        },
     });
 
     const submitMovieHandler = async (data) => {
         try {
-            const response = await api.put(`/movie/${movieId}`, data);
+            const response = await api.put(`/movie/${movieId}`, data, {
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${authCtx.token}`,
+                },
+            });
             if (response.status === 200) {
                 window.location.reload(true);
             }

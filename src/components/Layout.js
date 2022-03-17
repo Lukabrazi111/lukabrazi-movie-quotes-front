@@ -3,6 +3,7 @@ import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import AuthContext from '../context/auth-context';
 import LanguageContext from '../context/language-context';
+import api from './utilities/axios-hook';
 
 const Layout = (props) => {
     const changeLanguageCtx = useContext(LanguageContext);
@@ -25,7 +26,7 @@ const Layout = (props) => {
                         <Link
                             onClick={() => {
                                 authCtx.logout();
-                                window.location.reload(true);
+                                window.location.href = '/';
                             }}
                             to="/"
                             className="text-white hover:underline mr-4"

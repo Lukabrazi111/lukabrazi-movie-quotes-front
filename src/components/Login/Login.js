@@ -1,21 +1,21 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 
 import axios from 'axios';
-import {useTranslation} from 'react-i18next';
-import {useForm} from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
+import { useForm } from 'react-hook-form';
 import api from '../utilities/axios-hook';
 import AuthContext from '../../context/auth-context';
-import Layout from "../Layout";
+import Layout from '../Layout';
 
 const Login = () => {
-    const {t} = useTranslation();
-    const [error, setError] = useState({type: false, message: ''});
+    const { t } = useTranslation();
+    const [error, setError] = useState({ type: false, message: '' });
     const authCtx = useContext(AuthContext);
 
     const {
         register,
         handleSubmit,
-        formState: {errors},
+        formState: { errors },
     } = useForm({
         defaultValues: {
             email: '',
@@ -35,7 +35,7 @@ const Login = () => {
                 authCtx.login(token);
                 window.location.href = '/admin/movies';
             } else {
-                setError({type: true, message: errorMessage});
+                setError({ type: true, message: errorMessage });
             }
         } catch (error) {
             alert(error.message);
@@ -93,7 +93,9 @@ const Login = () => {
                                 {!error.type ? (
                                     t(';)')
                                 ) : (
-                                    <p className="text-red-500">{error.message}</p>
+                                    <p className="text-red-500">
+                                        {error.message}
+                                    </p>
                                 )}
                             </div>
                         </div>
