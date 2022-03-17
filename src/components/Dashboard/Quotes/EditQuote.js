@@ -1,20 +1,26 @@
-import React, {useState, useEffect} from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 
-import {useTranslation} from "react-i18next";
-import EditQuoteModal from "../../UI/Modal/EditQuoteModal";
-import Loading from "../../UI/Loading";
+import { useTranslation } from 'react-i18next';
+import EditQuoteModal from '../../UI/Modal/EditQuoteModal';
+import Loading from '../../UI/Loading';
 import api from '../../utilities/axios-hook';
-import {useForm} from "react-hook-form";
+import { useForm } from 'react-hook-form';
+import AuthContext from '../../../context/auth-context';
 
 const EditQuote = (props) => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
     const [movies, setMovies] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
+    const authCtx = useContext(AuthContext);
 
     const quote = props.quote[0];
     const quoteId = quote.id;
 
-    const {register, handleSubmit, formState: {errors}} = useForm({
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+    } = useForm({
         defaultValues: {
             enQuote: quote.quote['en'],
             kaQuote: quote.quote['ka'],
@@ -41,7 +47,7 @@ const EditQuote = (props) => {
         };
 
         fetchMoviesHandler();
-    }, [])
+    }, []);
 
     const submitQuoteHandler = async (data) => {
         try {
@@ -56,7 +62,8 @@ const EditQuote = (props) => {
             const response = await api.post(`/quote/${quoteId}`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
-                }
+                    Authorization: `Bearer ${authCtx.token}`,
+                },
             });
             const responseData = await response.data;
 
@@ -104,28 +111,36 @@ const EditQuote = (props) => {
                         })}
                         type="file"
                     />
-                    {isLoading ? <Loading/> : (<div>
-                        <div className="my-4 text-center">
-                            <p className="text-white font-bold text-lg">{t('Movies')}</p>
-                            <select
-                                {...register('movieId')}
-                                className="w-full py-2 my-1 mb-3 rounded outline-none px-3"
+                    {isLoading ? (
+                        <Loading />
+                    ) : (
+                        <div>
+                            <div className="my-4 text-center">
+                                <p className="text-white font-bold text-lg">
+                                    {t('Movies')}
+                                </p>
+                                <select
+                                    {...register('movieId')}
+                                    className="w-full py-2 my-1 mb-3 rounded outline-none px-3"
+                                >
+                                    {movies.map((movie) => (
+                                        <option key={movie.id} value={movie.id}>
+                                            {movie.name['en']}
+                                        </option>
+                                    ))}
+                                </select>
+                            </div>
+                            <button
+                                type="submit"
+                                className="bg-blue-100 py-3 w-full rounded-md hover:bg-blue-400 hover:text-white transition-colors"
                             >
-                                {movies.map(movie => (
-                                    <option key={movie.id} value={movie.id}>{movie.name['en']}</option>
-                                ))}
-                            </select>
+                                {t('Add Quote')}
+                            </button>
+                            <div className="text-red-400 text-center mt-4">
+                                {errors.quoteImg?.message}
+                            </div>
                         </div>
-                        <button
-                            type="submit"
-                            className="bg-blue-100 py-3 w-full rounded-md hover:bg-blue-400 hover:text-white transition-colors"
-                        >
-                            {t('Add Quote')}
-                        </button>
-                        <div className="text-red-400 text-center mt-4">
-                            {errors.quoteImg?.message}
-                        </div>
-                    </div>)}
+                    )}
                 </form>
             </div>
         </EditQuoteModal>

@@ -1,17 +1,19 @@
-import React from 'react';
+import React, { useContext } from 'react';
 
 import Modal from '../../UI/Modal/MovieModal';
-import {useForm} from 'react-hook-form';
-import {useTranslation} from 'react-i18next';
+import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 import api from '../../utilities/axios-hook';
+import AuthContext from '../../../context/auth-context';
 
 const AddMovie = (props) => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
+    const authCtx = useContext(AuthContext);
 
     const {
         register,
         handleSubmit,
-        formState: {errors},
+        formState: { errors },
     } = useForm({
         defaultValues: {
             enName: '',
@@ -21,7 +23,11 @@ const AddMovie = (props) => {
 
     const submitFormHandler = async (data) => {
         try {
-            const response = await api.post('/movie', data);
+            const response = await api.post('/movie', data, {
+                headers: {
+                    Authorization: `Bearer ${authCtx.token}`,
+                },
+            });
             const responseData = await response.data;
 
             if (responseData) {

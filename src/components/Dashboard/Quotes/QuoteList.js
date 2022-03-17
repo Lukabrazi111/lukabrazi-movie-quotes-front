@@ -1,15 +1,17 @@
-import React, {useContext, useState} from 'react';
+import React, { useContext, useState } from 'react';
 
-import {useTranslation} from 'react-i18next';
+import { useTranslation } from 'react-i18next';
 import LanguageContext from '../../../context/language-context';
-import EditQuote from "./EditQuote";
+import EditQuote from './EditQuote';
 import api from '../../utilities/axios-hook';
+import AuthContext from '../../../context/auth-context';
 
-const QuoteList = ({quotesList}) => {
-    const {t} = useTranslation();
+const QuoteList = ({ quotesList }) => {
+    const { t } = useTranslation();
     const languageCtx = useContext(LanguageContext);
     const [showEditModal, setShowEditModal] = useState(false);
     const [quote, setQuote] = useState([]);
+    const authCtx = useContext(AuthContext);
 
     const currentLanguage = languageCtx.lang;
 
@@ -31,21 +33,26 @@ const QuoteList = ({quotesList}) => {
 
     const deleteQuoteHandler = async (id) => {
         try {
-            const response = await api.delete(`/quote/${id}`);
+            const response = await api.delete(`/quote/${id}`, {
+                headers: {
+                    Authorization: `Bearer ${authCtx.token}`,
+                },
+            });
             const responseData = await response.data;
 
-            if(responseData) {
+            if (responseData) {
                 window.location.reload(true);
             }
-        }catch(error) {
+        } catch (error) {
             alert(error.message);
         }
-
     };
 
     return (
         <React.Fragment>
-            {showEditModal && <EditQuote quote={quote} onClose={closeModalHandler}/>}
+            {showEditModal && (
+                <EditQuote quote={quote} onClose={closeModalHandler} />
+            )}
             {quotesList.map((quote) => (
                 <li
                     key={quote.id}
@@ -72,12 +79,14 @@ const QuoteList = ({quotesList}) => {
                     <div className="flex">
                         <button
                             onClick={() => showModalHandler(quote.id)}
-                            className="bg-green-400 py-2 w-full hover:bg-green-500 rounded-bl-md">
+                            className="bg-green-400 py-2 w-full hover:bg-green-500 rounded-bl-md"
+                        >
                             {t('Edit')}
                         </button>
                         <button
                             onClick={() => deleteQuoteHandler(quote.id)}
-                            className="bg-red-400 py-2 w-full hover:bg-red-500 rounded-br-md">
+                            className="bg-red-400 py-2 w-full hover:bg-red-500 rounded-br-md"
+                        >
                             {t('Delete')}
                         </button>
                     </div>
