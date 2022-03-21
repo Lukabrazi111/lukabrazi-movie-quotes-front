@@ -31,11 +31,14 @@ const AddQuote = (props) => {
     useEffect(() => {
         const fetchMoviesHandler = async () => {
             try {
+                setIsLoading(true);
                 const response = await api.get('/all-movies');
                 const responseData = await response.data;
 
+                setIsLoading(false);
                 setMovies(responseData);
             } catch (error) {
+                setIsLoading(true);
                 alert(error.message);
             }
         };

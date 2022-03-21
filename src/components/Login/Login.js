@@ -6,6 +6,7 @@ import { useForm } from 'react-hook-form';
 import api from '../utilities/axios-hook';
 import AuthContext from '../../context/auth-context';
 import Layout from '../Layout';
+import Loading from '../UI/Loading';
 
 const Login = () => {
     const { t } = useTranslation();
@@ -37,7 +38,6 @@ const Login = () => {
 
             const errorMessage = response.data.message;
             const token = response.data.access_token;
-
             if (token) {
                 authCtx.login(token);
                 window.location.href = '/admin/movies';
