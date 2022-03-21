@@ -1,12 +1,12 @@
-import React, {useEffect, useState, useContext} from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 
-import {Link} from 'react-router-dom';
-import {useParams} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 
 import api from './utilities/axios-hook';
 import Loading from './UI/Loading';
 import LanguageContext from '../context/language-context';
-import Layout from "./Layout";
+import Layout from './Layout';
 
 const Quote = () => {
     const changeLanguageCtx = useContext(LanguageContext);
@@ -17,18 +17,18 @@ const Quote = () => {
 
     let params = useParams();
 
-    setTimeout(() => setIsLoading(false), 200);
-
     useEffect(() => {
         const fetchDataHandler = async () => {
             try {
+                setIsLoading(true);
                 const response = await api.get('movies/' + params.movieId);
                 const responseData = await response.data;
 
                 setMovie(responseData);
-                setIsLoading(true);
+                setIsLoading(false);
                 return responseData;
             } catch (error) {
+                setIsLoading(false);
                 alert(error.message);
             }
         };
@@ -50,7 +50,7 @@ const Quote = () => {
                     </div>
 
                     {isLoading ? (
-                        <Loading/>
+                        <Loading />
                     ) : (
                         <section className="mt-24 text-center">
                             <div className="mb-12">

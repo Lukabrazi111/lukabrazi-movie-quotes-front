@@ -1,30 +1,30 @@
-import React, {useEffect, useState, useContext} from 'react';
-import {Link} from 'react-router-dom';
+import React, { useEffect, useState, useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Loading from './UI/Loading';
 import LanguageContext from '../context/language-context';
 
 import api from './utilities/axios-hook';
-import Layout from "./Layout";
+import Layout from './Layout';
 
 const Quotes = () => {
     const changeLanguageCtx = useContext(LanguageContext);
     const [quotes, setQuote] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
 
-    setTimeout(() => setIsLoading(false), 1000);
-
     const currentLanguage = changeLanguageCtx.lang;
 
     useEffect(() => {
         const fetchDataHandler = async () => {
             try {
+                setIsLoading(true);
                 const response = await api.get('quotes');
                 const responseData = [response.data];
 
                 setQuote(responseData);
-                setIsLoading(true);
+                setIsLoading(false);
                 return responseData;
             } catch (error) {
+                setIsLoading(false);
                 alert(error.message);
             }
         };
@@ -38,7 +38,7 @@ const Quotes = () => {
                 <div className="container w-full max-w-lg m-auto">
                     <section className="mt-36 text-center">
                         {isLoading ? (
-                            <Loading/>
+                            <Loading />
                         ) : (
                             quotes.map((quote) => (
                                 <div key={quote.id}>
@@ -46,7 +46,8 @@ const Quotes = () => {
                                         <img
                                             className="rounded-xl"
                                             src={
-                                                process.env.REACT_APP_IMAGE_URL +
+                                                process.env
+                                                    .REACT_APP_IMAGE_URL +
                                                 quote.thumbnail
                                             }
                                             alt="img"
@@ -75,7 +76,6 @@ const Quotes = () => {
                 </div>
             </Layout>
         </React.Fragment>
-
     );
 };
 

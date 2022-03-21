@@ -25,8 +25,15 @@ const Login = () => {
 
     const submitFormHandler = async (data) => {
         try {
-            await axios.get('http://localhost:8000/sanctum/csrf-cookie');
-            const response = await api.post('login', data);
+            await axios.get(
+                'https://movie-quotes-api.lukabrazi.redberryinternship.ge/sanctum/csrf-cookie'
+            );
+            const response = await api.post('login', data, {
+                headers: {
+                    Accept: 'application/json',
+                    Authorization: `Bearer ${authCtx.token}`,
+                },
+            });
 
             const errorMessage = response.data.message;
             const token = response.data.access_token;

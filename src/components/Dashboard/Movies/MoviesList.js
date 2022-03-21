@@ -1,15 +1,13 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 
 import MovieList from './MovieList';
 import api from '../../utilities/axios-hook';
 import Loading from '../../UI/Loading';
-import DashboardLayout from "../DashboardLayout";
+import DashboardLayout from '../DashboardLayout';
 
 const Movies = () => {
     const [movie, setMovie] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
-
-    setTimeout(() => setIsLoading(false), 500);
 
     useEffect(() => {
         const fetchDataHandler = async () => {
@@ -19,7 +17,9 @@ const Movies = () => {
                 const responseData = response.data;
 
                 setMovie(responseData);
+                setIsLoading(false);
             } catch (error) {
+                setIsLoading(false);
                 alert(error.message);
             }
         };
@@ -31,12 +31,12 @@ const Movies = () => {
         <React.Fragment>
             <DashboardLayout>
                 {isLoading ? (
-                    <Loading/>
+                    <Loading />
                 ) : (
                     <div className="w-full max-w-6xl mx-auto mt-12">
                         <div className="mt-12">
                             <ul className="list-none grid grid-cols-3 gap-4">
-                                <MovieList movieList={movie}/>
+                                <MovieList movieList={movie} />
                             </ul>
                         </div>
                     </div>
