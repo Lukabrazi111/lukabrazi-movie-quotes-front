@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
-import api from 'components/utilities/axios-hook';
+import api from 'utilities/axios-hook';
 import AuthContext from 'context/auth-context';
 import Layout from 'components/Layout';
 

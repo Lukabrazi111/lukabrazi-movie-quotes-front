@@ -5,9 +5,9 @@ import Quotes from './components/Quotes';
 import Quote from './components/Quote';
 import {LanguageProvider} from './context/language-context';
 import AuthContext from './context/auth-context';
-import Login from './components/Login/Login';
-import MoviesList from './components/Dashboard/Movies/MoviesList';
-import QuotesList from './components/Dashboard/Quotes/QuotesList'
+import Login from './pages/Login/Login';
+import MoviesList from './pages/Dashboard/Movies/MoviesList';
+import QuotesList from './pages/Dashboard/Quotes/QuotesList'
 import NotFound from './components/Error/NotFound';
 
 function App() {

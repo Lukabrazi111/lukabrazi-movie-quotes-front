@@ -3,7 +3,7 @@ import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
-import api from './utilities/axios-hook';
+import api from '../utilities/axios-hook';
 import Loading from './UI/Loading';
 import LanguageContext from 'context/language-context';
 import Layout from './Layout';

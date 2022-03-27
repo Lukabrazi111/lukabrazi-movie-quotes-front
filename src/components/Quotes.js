@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Loading from './UI/Loading';
 import LanguageContext from 'context/language-context';
 
-import api from './utilities/axios-hook';
+import api from '../utilities/axios-hook';
 import Layout from './Layout';
 
 const Quotes = () => {

@@ -4,8 +4,8 @@ import { useTranslation } from 'react-i18next';
 import { FaAngleLeft } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
 import LanguageContext from 'context/language-context';
-import AddMovie from './Movies/AddMovie';
-import AddQuote from './Quotes/AddQuote';
+import AddMovie from './Movies/components/AddMovie';
+import AddQuote from './Quotes/components/AddQuote';
 
 const DashboardLayout = (props) => {
     const { t } = useTranslation();

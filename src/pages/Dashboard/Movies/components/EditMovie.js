@@ -3,7 +3,7 @@ import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import EditMovieModal from 'components/UI/Modal/EditMovieModal';
 import { useForm } from 'react-hook-form';
-import api from 'components/utilities/axios-hook';
+import api from 'utilities/axios-hook';
 import AuthContext from 'context/auth-context';
 
 const EditMovie = (props) => {
