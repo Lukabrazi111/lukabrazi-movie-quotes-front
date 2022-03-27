@@ -1,9 +1,8 @@
 import React, { useContext } from 'react';
 
 import { Link } from 'react-router-dom';
-import AuthContext from '../context/auth-context';
-import LanguageContext from '../context/language-context';
-import api from './utilities/axios-hook';
+import AuthContext from 'context/auth-context';
+import LanguageContext from 'context/language-context';
 
 const Layout = (props) => {
     const changeLanguageCtx = useContext(LanguageContext);

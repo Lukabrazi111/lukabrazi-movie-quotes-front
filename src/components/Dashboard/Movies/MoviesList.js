@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 
 import MovieList from './MovieList';
-import api from '../../utilities/axios-hook';
-import Loading from '../../UI/Loading';
-import DashboardLayout from '../DashboardLayout';
+import api from 'components/utilities/axios-hook';
+import Loading from 'components/UI/Loading';
+import DashboardLayout from 'components/Dashboard/DashboardLayout';
 
 const Movies = () => {
     const [movie, setMovie] = useState([]);

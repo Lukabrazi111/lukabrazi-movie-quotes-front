@@ -1,8 +1,8 @@
 import React from 'react';
 import {useTranslation} from 'react-i18next';
 
-import image from '../../assets/404.png';
-import Layout from "../Layout";
+import image from 'assets/404.png';
+import Layout from "components/Layout";
 
 const NotFound = () => {
     const {t} = useTranslation();

@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { FaAngleLeft } from 'react-icons/fa';
 import { Link, NavLink } from 'react-router-dom';
-import LanguageContext from '../../context/language-context';
+import LanguageContext from 'context/language-context';
 import AddMovie from './Movies/AddMovie';
 import AddQuote from './Quotes/AddQuote';
 

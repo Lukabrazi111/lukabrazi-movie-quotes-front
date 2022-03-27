@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import Loading from '../../UI/Loading';
-import api from '../../utilities/axios-hook';
+import Loading from 'components/UI/Loading';
+import api from 'components/utilities/axios-hook';
 import QuoteList from './QuoteList';
-import DashboardLayout from '../DashboardLayout';
+import DashboardLayout from 'components/Dashboard/DashboardLayout';
 
 const Quotes = () => {
     const [isLoading, setIsLoading] = useState(false);
