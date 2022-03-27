@@ -26,11 +26,10 @@ const Login = () => {
     const submitFormHandler = async (data) => {
         try {
             await axios.get(
-                'https://movie-quotes-api.lukabrazi.redberryinternship.ge/sanctum/csrf-cookie'
+                process.env.REACT_APP_AUTH_URL + '/sanctum/csrf-cookie'
             );
             const response = await api.post('login', data, {
                 headers: {
-                    Accept: 'application/json',
                     Authorization: `Bearer ${authCtx.token}`,
                 },
             });

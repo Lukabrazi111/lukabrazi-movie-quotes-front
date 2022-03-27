@@ -24,7 +24,6 @@ const EditMovie = (props) => {
         try {
             const response = await api.put(`/movie/${movieId}`, data, {
                 headers: {
-                    Accept: 'application/json',
                     Authorization: `Bearer ${authCtx.token}`,
                 },
             });

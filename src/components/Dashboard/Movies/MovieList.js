@@ -34,7 +34,6 @@ const Movie = ({ movieList }) => {
         try {
             const response = await api.delete(`/movie/${id}`, {
                 headers: {
-                    Accept: 'application/json',
                     Authorization: `Bearer ${authCtx.token}`,
                 },
             });

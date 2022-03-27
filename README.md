@@ -33,31 +33,42 @@ This is an app for movies and their quotes that you can edit, delete and add if 
 #
 
 ## Getting Started
+
 1. clone Movie quote front repository from github:
+
 ```
 git clone https://github.com/RedberryInternship/lukabrazi-movie-quotes-front
 ```
+
 2. Next step requires you to install all the JS dependencies:
+
 ```
 npm install
 ```
+
 3. Now we need to set our **.env** file. Go to the root of your project and execute this command:
+
 ```
 cp .env.example .env
 ```
 
 4. Now we need to build our project:
+
 ```
 npm run build
 ```
+
 5. After all commands above you should run localhost server:
+
 ```
 npm start
 ```
+
 This command should provide **.env** one necessary environment variable.
 
 ## Database Diagram
-- **[Diagram](https://drawsql.app/redberry-15/diagrams/movie-quote)**
+
+-   **[Diagram](https://drawsql.app/redberry-15/diagrams/movie-quote)**
 
 ## Security Vulnerabilities
 
