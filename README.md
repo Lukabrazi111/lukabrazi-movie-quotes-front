@@ -41,17 +41,18 @@ git clone https://github.com/RedberryInternship/lukabrazi-movie-quotes-front
 ```
 npm install
 ```
-3. Now we need to build our project:
+3. Now we need to set our **.env** file. Go to the root of your project and execute this command:
+```
+cp .env.example .env
+```
+
+4. Now we need to build our project:
 ```
 npm run build
 ```
-4. After all commands above you should run localhost server:
+5. After all commands above you should run localhost server:
 ```
 npm start
-```
-5. Now we need to set our **.env** file. Go to the root of your project and execute this command:
-```
-cp .env.example .env
 ```
 This command should provide **.env** one necessary environment variable.
 
