@@ -1,70 +1,67 @@
-# Getting Started with Create React App
+## Movie Quote App Front
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+---
 
-## Available Scripts
+This is an app for movies and their quotes that you can edit, delete and add if you are an admin. The page has multi language functionality also.
 
-In the project directory, you can run:
+### Table of Contents
 
-### `npm start`
+-   [Prerequisites](#prerequisites)
+-   [Tech Stack](#tech-stack)
+-   [Getting Started](#getting-started)
+-   [Database Diagram](#database-diagram)
+-   [Security Vulnerabilities](#security-vulnerabilities)
+-   [Website](#website)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+#
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites:
 
-### `npm test`
+-   React 17.0.2
+-   NPM 8.1.0
+-   NODEJS 16.13.0
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#
 
-### `npm run build`
+### Tech Stack:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-   [React](https://reactjs.org/)
+-   [axios](https://github.com/axios/axios)
+-   [useForm](https://react-hook-form.com/api/useform/)
+-   [i18next](https://react.i18next.com/)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Getting Started
+1. clone Movie quote front repository from github:
+```
+git clone https://github.com/RedberryInternship/lukabrazi-movie-quotes-front
+```
+2. Next step requires you to install all the JS dependencies:
+```
+npm install
+```
+3. Now we need to build our project:
+```
+npm run build
+```
+4. After all commands above you should run localhost server:
+```
+npm start
+```
+5. Now we need to set our **.env** file. Go to the root of your project and execute this command:
+```
+cp .env.example .env
+```
+This command should provide **.env** one necessary environment variable.
 
-### `npm run eject`
+## Database Diagram
+- **[Diagram](https://drawsql.app/redberry-15/diagrams/movie-quote)**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Security Vulnerabilities
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+If you discover a security vulnerability within Movie App Front, please send an e-mail to Luka Khangoshvili via [lukabrazi@redberry.ge](mailto:lukabrazi@redberry.ge). All security vulnerabilities will be promptly addressed.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Website
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+The Movie App Front is open-sourced web app.
