@@ -42,31 +42,31 @@ const EditMovie = (props) => {
                     onSubmit={handleSubmit(submitMovieHandler)}
                     className={'flex flex-col space-y-3'}
                 >
-                    <label htmlFor="enName" className="text-white">
+                    <label htmlFor='enName' className='text-white'>
                         {t('English name')}
                     </label>
                     <input
                         {...register('enMovie')}
                         defaultValue={movieName['en']}
-                        type="text"
-                        id="enMovie"
+                        type='text'
+                        id='enMovie'
                         placeholder={t('English name')}
-                        className="px-2 py-3 border-none outline-none rounded-md"
+                        className='px-2 py-3 border-none outline-none rounded-md'
                     />
-                    <label htmlFor="kaName" className="text-white">
+                    <label htmlFor='kaName' className='text-white'>
                         {t('Georgian name')}
                     </label>
                     <input
                         {...register('kaMovie')}
                         defaultValue={movieName['ka']}
-                        type="text"
-                        id="kaMovie"
+                        type='text'
+                        id='kaMovie'
                         placeholder={t('Georgian name')}
-                        className="px-2 py-3 border-none outline-none rounded-md"
+                        className='px-2 py-3 border-none outline-none rounded-md'
                     />
                     <button
-                        type="submit"
-                        className="bg-blue-100 py-3 rounded-md hover:bg-blue-400 hover:text-white transition-colors"
+                        type='submit'
+                        className='bg-blue-100 py-3 rounded-md hover:bg-blue-400 hover:text-white transition-colors'
                     >
                         {t('Add Movie')}
                     </button>

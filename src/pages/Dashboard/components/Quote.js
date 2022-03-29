@@ -38,12 +38,12 @@ const Quote = () => {
 
     return (
         <Layout>
-            <div className="container w-full max-w-lg m-auto">
-                <div className="text-center">
-                    <div className="mt-9">
+            <div className='container w-full max-w-lg m-auto'>
+                <div className='text-center'>
+                    <div className='mt-9'>
                         <Link
-                            to="/"
-                            className="text-white py-2 px-4 bg-gray-500 rounded hover:bg-gray-700 transition delay-75"
+                            to='/'
+                            className='text-white py-2 px-4 bg-gray-500 rounded hover:bg-gray-700 transition delay-75'
                         >
                             Go Back
                         </Link>
@@ -52,24 +52,24 @@ const Quote = () => {
                     {isLoading ? (
                         <Loading />
                     ) : (
-                        <section className="mt-24 text-center">
-                            <div className="mb-12">
-                                <p className="text-white text-3xl text-left">
+                        <section className='mt-24 text-center'>
+                            <div className='mb-12'>
+                                <p className='text-white text-3xl text-left'>
                                     {movie[0]?.name[currentLanguage]}
                                 </p>
                             </div>
 
                             {movie[0]?.quotes.map((quote) => (
-                                <div key={quote.id} className="mb-6">
+                                <div key={quote.id} className='mb-6'>
                                     <img
                                         src={
                                             process.env.REACT_APP_IMAGE_URL +
                                             quote.thumbnail
                                         }
-                                        alt="img"
+                                        alt='img'
                                     />
-                                    <div className="mb-10 bg-white rounded p-4 text-left">
-                                        <p className="text-2xl text-primary">
+                                    <div className='mb-10 bg-white rounded p-4 text-left'>
+                                        <p className='text-2xl text-primary'>
                                             {quote.quote[currentLanguage]}
                                         </p>
                                     </div>

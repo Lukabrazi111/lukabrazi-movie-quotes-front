@@ -54,21 +54,21 @@ const Movie = ({ movieList }) => {
             {movieList.map((movie) => (
                 <li
                     key={movie.id}
-                    className="bg-white rounded-xl flex justify-between flex-col"
+                    className='bg-white rounded-xl flex justify-between flex-col'
                 >
-                    <div className="px-3 py-5">
-                        <p className="text-lg">{movie.name[currentLanguage]}</p>
+                    <div className='px-3 py-5'>
+                        <p className='text-lg'>{movie.name[currentLanguage]}</p>
                     </div>
-                    <div className="flex">
+                    <div className='flex'>
                         <button
                             onClick={() => showEditModalHandler(movie.id)}
-                            className="bg-green-400 py-2 w-full hover:bg-green-500 rounded-bl-md"
+                            className='bg-green-400 py-2 w-full hover:bg-green-500 rounded-bl-md'
                         >
                             {t('Edit')}
                         </button>
                         <button
                             onClick={() => deleteMovieHandler(movie.id)}
-                            className="bg-red-400 py-2 w-full hover:bg-red-500 rounded-br-md"
+                            className='bg-red-400 py-2 w-full hover:bg-red-500 rounded-br-md'
                         >
                             {t('Delete')}
                         </button>

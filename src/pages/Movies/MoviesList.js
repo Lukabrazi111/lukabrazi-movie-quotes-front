@@ -33,9 +33,9 @@ const Movies = () => {
                 {isLoading ? (
                     <Loading />
                 ) : (
-                    <div className="w-full max-w-6xl mx-auto mt-12">
-                        <div className="mt-12">
-                            <ul className="list-none grid grid-cols-3 gap-4">
+                    <div className='w-full max-w-6xl mx-auto mt-12'>
+                        <div className='mt-12'>
+                            <ul className='list-none grid grid-cols-3 gap-4'>
                                 <MovieList movieList={movie} />
                             </ul>
                         </div>

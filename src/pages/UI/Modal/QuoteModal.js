@@ -3,7 +3,10 @@ import ReactDOM from 'react-dom';
 
 const Backdrop = (props) => {
     return (
-        <div onClick={props.onCloseQuote} className={'fixed top-0 left-0 w-full h-screen bg-backdrop z-10'}>
+        <div
+            onClick={props.onCloseQuote}
+            className={'fixed top-0 left-0 w-full h-screen bg-backdrop z-10'}
+        >
             {props.children}
         </div>
     );

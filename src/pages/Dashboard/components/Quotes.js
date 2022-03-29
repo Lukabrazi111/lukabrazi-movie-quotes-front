@@ -34,35 +34,35 @@ const Quotes = () => {
     return (
         <React.Fragment>
             <Layout>
-                <div className="container w-full max-w-lg m-auto">
-                    <section className="mt-36 text-center">
+                <div className='container w-full max-w-lg m-auto'>
+                    <section className='mt-36 text-center'>
                         {isLoading ? (
                             <Loading />
                         ) : (
                             quotes.map((quote) => (
                                 <div key={quote.id}>
-                                    <div className="mb-6">
+                                    <div className='mb-6'>
                                         <img
-                                            className="rounded-xl"
+                                            className='rounded-xl'
                                             src={
                                                 process.env
                                                     .REACT_APP_IMAGE_URL +
                                                 quote.thumbnail
                                             }
-                                            alt="img"
+                                            alt='img'
                                         />
                                     </div>
-                                    <div className="mb-10">
-                                        <p className="text-white text-3xl">
+                                    <div className='mb-10'>
+                                        <p className='text-white text-3xl'>
                                             {quote.movie.name[currentLanguage]}
                                         </p>
                                     </div>
 
-                                    <div className="mb-8">
-                                        <p className="text-white text-2xl">
+                                    <div className='mb-8'>
+                                        <p className='text-white text-2xl'>
                                             <Link
                                                 to={'quote/' + quote.movie_id}
-                                                className="hover:underline"
+                                                className='hover:underline'
                                             >
                                                 {quote.quote[currentLanguage]}
                                             </Link>

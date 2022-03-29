@@ -16,26 +16,26 @@ function App() {
     return (
         <LanguageProvider>
             <Routes>
-                <Route path="/" exact element={<Quotes />} />
-                <Route path="/quote/:movieId" exact element={<Quote />} />
+                <Route path='/' exact element={<Quotes />} />
+                <Route path='/quote/:movieId' exact element={<Quote />} />
                 {!authCtx.isLoggedIn && (
-                    <Route path="/login" exact element={<Login />} />
+                    <Route path='/login' exact element={<Login />} />
                 )}
                 {authCtx.isLoggedIn && (
                     <Route
-                        path="/admin/movies"
+                        path='/admin/movies'
                         exact
                         element={<MoviesList />}
                     />
                 )}
                 {authCtx.isLoggedIn && (
                     <Route
-                        path="/admin/quotes"
+                        path='/admin/quotes'
                         exact
                         element={<QuotesList />}
                     />
                 )}
-                <Route path="*" element={<NotFound />} />
+                <Route path='*' element={<NotFound />} />
             </Routes>
         </LanguageProvider>
     );

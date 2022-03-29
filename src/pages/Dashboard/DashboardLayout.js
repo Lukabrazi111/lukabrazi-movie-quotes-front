@@ -33,10 +33,10 @@ const DashboardLayout = (props) => {
         <React.Fragment>
             {showAddMovieModal && <AddMovie onClose={closeMovieModalHandler} />}
             {showAddQuoteModal && <AddQuote onClose={closeQuoteModalHandler} />}
-            <div className="bg-gray-200 px-5 py-4 flex justify-between items-center relative">
-                <div className="bg-gray-400 rounded py-2 px-3 ml-12">
-                    <Link to={'/'} className="bg-gray-200 absolute left-2">
-                        <FaAngleLeft className="text-2xl" />
+            <div className='bg-gray-200 px-5 py-4 flex justify-between items-center relative'>
+                <div className='bg-gray-400 rounded py-2 px-3 ml-12'>
+                    <Link to={'/'} className='bg-gray-200 absolute left-2'>
+                        <FaAngleLeft className='text-2xl' />
                     </Link>
                     <NavLink
                         to={'/admin/movies'}
@@ -55,17 +55,17 @@ const DashboardLayout = (props) => {
                         {t('Quotes')}
                     </NavLink>
                 </div>
-                <div className="flex">
-                    <div className="space-x-4">
+                <div className='flex'>
+                    <div className='space-x-4'>
                         <button
                             onClick={showMovieModalHandler}
-                            className="bg-blue-400 py-2 px-9 hover:bg-blue-500"
+                            className='bg-blue-400 py-2 px-9 hover:bg-blue-500'
                         >
                             {t('Add Movie')}
                         </button>
                         <button
                             onClick={showQuoteModalHandler}
-                            className="bg-blue-400 py-2 px-9 hover:bg-blue-500"
+                            className='bg-blue-400 py-2 px-9 hover:bg-blue-500'
                         >
                             {t('Add Quote')}
                         </button>

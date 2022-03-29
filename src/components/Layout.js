@@ -13,12 +13,12 @@ const Layout = (props) => {
 
     return (
         <React.Fragment>
-            <main className="bg-primary flex justify-center items-center mt-6">
+            <main className='bg-primary flex justify-center items-center mt-6'>
                 {checkAuth && (
                     <div>
                         <Link
-                            to="/admin/movies"
-                            className="text-white hover:underline mr-4"
+                            to='/admin/movies'
+                            className='text-white hover:underline mr-4'
                         >
                             Admin Panel
                         </Link>
@@ -27,21 +27,21 @@ const Layout = (props) => {
                                 authCtx.logout();
                                 window.location.href = '/';
                             }}
-                            to="/"
-                            className="text-white hover:underline mr-4"
+                            to='/'
+                            className='text-white hover:underline mr-4'
                         >
                             Logout
                         </Link>
                     </div>
                 )}
                 {!checkAuth && (
-                    <Link to="/login" className="text-white hover:underline">
+                    <Link to='/login' className='text-white hover:underline'>
                         Login
                     </Link>
                 )}
             </main>
             {props.children}
-            <main className="fixed top-1/2 ml-10 flex items-center justify-center flex-col gap-2">
+            <main className='fixed top-1/2 ml-10 flex items-center justify-center flex-col gap-2'>
                 <button
                     onClick={changeLanguageCtx.ka}
                     className={`text-center hover:bg-white ${

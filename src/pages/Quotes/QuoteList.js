@@ -56,9 +56,9 @@ const QuoteList = ({ quotesList }) => {
             {quotesList.map((quote) => (
                 <li
                     key={quote.id}
-                    className="bg-white rounded-xl flex justify-between flex-col"
+                    className='bg-white rounded-xl flex justify-between flex-col'
                 >
-                    <div className="px-3 py-5 text-center">
+                    <div className='px-3 py-5 text-center'>
                         <div>
                             <img
                                 src={
@@ -66,26 +66,26 @@ const QuoteList = ({ quotesList }) => {
                                     quote.thumbnail
                                 }
                                 alt={quote.movie.name[currentLanguage]}
-                                className="mb-3 rounded-md object-cover w-full h-48"
+                                className='mb-3 rounded-md object-cover w-full h-48'
                             />
                         </div>
-                        <p className="text-lg mb-3">
+                        <p className='text-lg mb-3'>
                             {quote.movie.name[currentLanguage]}
                         </p>
-                        <p className="text-sm text-gray-400">
+                        <p className='text-sm text-gray-400'>
                             {quote.quote[currentLanguage]}
                         </p>
                     </div>
-                    <div className="flex">
+                    <div className='flex'>
                         <button
                             onClick={() => showModalHandler(quote.id)}
-                            className="bg-green-400 py-2 w-full hover:bg-green-500 rounded-bl-md"
+                            className='bg-green-400 py-2 w-full hover:bg-green-500 rounded-bl-md'
                         >
                             {t('Edit')}
                         </button>
                         <button
                             onClick={() => deleteQuoteHandler(quote.id)}
-                            className="bg-red-400 py-2 w-full hover:bg-red-500 rounded-br-md"
+                            className='bg-red-400 py-2 w-full hover:bg-red-500 rounded-br-md'
                         >
                             {t('Delete')}
                         </button>

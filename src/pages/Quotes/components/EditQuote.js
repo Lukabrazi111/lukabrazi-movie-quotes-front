@@ -81,47 +81,47 @@ const EditQuote = (props) => {
         <EditQuoteModal onClose={props.onClose}>
             <div>
                 <form
-                    encType="multipart/form-data"
+                    encType='multipart/form-data'
                     onSubmit={handleSubmit(submitQuoteHandler)}
                     className={'flex flex-col space-y-3'}
                 >
-                    <label htmlFor="enQuote" className="text-white">
+                    <label htmlFor='enQuote' className='text-white'>
                         {t('English quote')}
                     </label>
                     <input
                         {...register('enQuote')}
                         defaultValue={quote.quote['en']}
-                        type="text"
+                        type='text'
                         placeholder={t('English quote')}
-                        className="px-2 py-3 border-none outline-none rounded-md"
+                        className='px-2 py-3 border-none outline-none rounded-md'
                     />
-                    <label htmlFor="kaQuote" className="text-white">
+                    <label htmlFor='kaQuote' className='text-white'>
                         {t('Georgian quote')}
                     </label>
                     <input
                         {...register('kaQuote')}
                         defaultValue={quote.quote['ka']}
-                        type="text"
+                        type='text'
                         placeholder={t('Georgian quote')}
-                        className="px-2 py-3 border-none outline-none rounded-md"
+                        className='px-2 py-3 border-none outline-none rounded-md'
                     />
                     <input
                         {...register('quoteImg', {
                             required: 'Please select image',
                         })}
-                        type="file"
+                        type='file'
                     />
                     {isLoading ? (
                         <Loading />
                     ) : (
                         <div>
-                            <div className="my-4 text-center">
-                                <p className="text-white font-bold text-lg">
+                            <div className='my-4 text-center'>
+                                <p className='text-white font-bold text-lg'>
                                     {t('Movies')}
                                 </p>
                                 <select
                                     {...register('movieId')}
-                                    className="w-full py-2 my-1 mb-3 rounded outline-none px-3"
+                                    className='w-full py-2 my-1 mb-3 rounded outline-none px-3'
                                 >
                                     {movies.map((movie) => (
                                         <option key={movie.id} value={movie.id}>
@@ -131,12 +131,12 @@ const EditQuote = (props) => {
                                 </select>
                             </div>
                             <button
-                                type="submit"
-                                className="bg-blue-100 py-3 w-full rounded-md hover:bg-blue-400 hover:text-white transition-colors"
+                                type='submit'
+                                className='bg-blue-100 py-3 w-full rounded-md hover:bg-blue-400 hover:text-white transition-colors'
                             >
                                 {t('Add Quote')}
                             </button>
-                            <div className="text-red-400 text-center mt-4">
+                            <div className='text-red-400 text-center mt-4'>
                                 {errors.quoteImg?.message}
                             </div>
                         </div>
