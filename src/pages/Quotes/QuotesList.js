@@ -1,22 +1,20 @@
 import React, { useEffect, useState } from 'react';
-
-import MovieList from './MovieList';
+import Loading from 'pages/UI/Loading';
 import api from 'utilities/axios-hook';
-import Loading from 'components/UI/Loading';
+import QuoteList from 'pages/Quotes/QuoteList';
 import DashboardLayout from 'pages/Dashboard/DashboardLayout';
 
-const Movies = () => {
-    const [movie, setMovie] = useState([]);
+const Quotes = () => {
     const [isLoading, setIsLoading] = useState(false);
+    const [quotes, setQuotes] = useState([]);
 
     useEffect(() => {
         const fetchDataHandler = async () => {
             try {
                 setIsLoading(true);
-                const response = await api.get('movies');
+                const response = await api.get('quotes-movies');
                 const responseData = response.data;
-
-                setMovie(responseData);
+                setQuotes(responseData);
                 setIsLoading(false);
             } catch (error) {
                 setIsLoading(false);
@@ -36,7 +34,7 @@ const Movies = () => {
                     <div className="w-full max-w-6xl mx-auto mt-12">
                         <div className="mt-12">
                             <ul className="list-none grid grid-cols-3 gap-4">
-                                <MovieList movieList={movie} />
+                                <QuoteList quotesList={quotes} />
                             </ul>
                         </div>
                     </div>
@@ -46,4 +44,4 @@ const Movies = () => {
     );
 };
 
-export default Movies;
+export default Quotes;
