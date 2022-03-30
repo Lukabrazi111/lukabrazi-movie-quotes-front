@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 
 import { useTranslation } from 'react-i18next';
-import EditQuoteModal from 'pages/UI/Modal/EditQuoteModal';
-import Loading from 'pages/UI/Loading';
+import EditQuoteModal from 'components/EditQuoteModal';
+import Loading from 'components/Loading';
 import api from 'utilities/axios-hook';
 import { useForm } from 'react-hook-form';
 import AuthContext from 'context/auth-context';

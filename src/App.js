@@ -1,14 +1,14 @@
 import React, { useContext } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
-import Quotes from 'pages/Dashboard/components/Quotes';
-import Quote from 'pages/Dashboard/components/Quote';
+import Quotes from 'pages/Movies';
+import Quote from 'pages/Quotes';
 import { LanguageProvider } from 'context/language-context';
 import AuthContext from 'context/auth-context';
-import Login from 'pages/Login/Login';
+import Login from 'pages/Login';
 import MoviesList from 'pages/Movies/MoviesList';
 import QuotesList from 'pages/Quotes/QuotesList';
-import NotFound from 'components/Error/NotFound';
+import NotFound from 'components/NotFound';
 
 function App() {
     const authCtx = useContext(AuthContext);

@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import Loading from 'pages/UI/Loading';
+import Loading from 'components/Loading';
 import LanguageContext from 'context/language-context';
 import api from 'utilities/axios-hook';
 import Layout from 'components/Layout';

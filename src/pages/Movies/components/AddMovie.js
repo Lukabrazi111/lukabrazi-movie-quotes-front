@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 
-import Modal from 'pages/UI/Modal/MovieModal';
+import Modal from 'components/MovieModal';
 import { useForm } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
 import api from 'utilities/axios-hook';

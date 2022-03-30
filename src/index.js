@@ -5,7 +5,7 @@ import App from 'App';
 import { BrowserRouter } from 'react-router-dom';
 import { AuthContextProvider } from 'context/auth-context';
 
-import Loading from 'pages/UI/Loading';
+import Loading from 'components/Loading';
 import 'i18n';
 
 ReactDOM.render(

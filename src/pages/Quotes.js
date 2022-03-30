@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 
 import api from 'utilities/axios-hook';
-import Loading from 'pages/UI/Loading';
+import Loading from 'components/Loading';
 import LanguageContext from 'context/language-context';
 import Layout from 'components/Layout';
 

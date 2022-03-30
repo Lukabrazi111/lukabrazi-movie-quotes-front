@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import Loading from 'pages/UI/Loading';
+import Loading from 'components/Loading';
 import api from 'utilities/axios-hook';
 import QuoteList from 'pages/Quotes/QuoteList';
 import DashboardLayout from 'pages/Dashboard/DashboardLayout';

@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 
 import { useTranslation } from 'react-i18next';
-import EditMovieModal from 'pages/UI/Modal/EditMovieModal';
+import EditMovieModal from 'components/EditMovieModal';
 import { useForm } from 'react-hook-form';
 import api from 'utilities/axios-hook';
 import AuthContext from 'context/auth-context';

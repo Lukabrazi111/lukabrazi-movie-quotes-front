@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import MovieList from 'pages/Movies/MovieList';
 import api from 'utilities/axios-hook';
-import Loading from 'pages/UI/Loading';
+import Loading from 'components/Loading';
 import DashboardLayout from 'pages/Dashboard/DashboardLayout';
 
 const Movies = () => {

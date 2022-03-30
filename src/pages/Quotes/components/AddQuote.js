@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 import { useTranslation } from 'react-i18next';
-import QuoteModal from 'pages/UI/Modal/QuoteModal';
+import QuoteModal from 'components/QuoteModal';
 import api from 'utilities/axios-hook';
-import Loading from 'pages/UI/Loading';
+import Loading from 'components/Loading';
 import LanguageContext from 'context/language-context';
 import AuthContext from 'context/auth-context';
 
