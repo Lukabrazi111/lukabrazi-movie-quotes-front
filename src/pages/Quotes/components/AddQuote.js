@@ -23,7 +23,7 @@ const AddQuote = (props) => {
         defaultValues: {
             enQuote: '',
             kaQuote: '',
-            movieId: '',
+            movieId: 1,
             quoteImg: '',
         },
     });

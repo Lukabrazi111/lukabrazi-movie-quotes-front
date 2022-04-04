@@ -1,13 +1,13 @@
 import React, { useContext } from 'react';
 
 import { Route, Routes } from 'react-router-dom';
-import Quotes from 'pages/Movies';
-import Quote from 'pages/Quotes';
+import Quotes from 'pages/Movies/Movies';
+import Quote from 'pages/Quotes/Quotes';
 import { LanguageProvider } from 'context/language-context';
 import AuthContext from 'context/auth-context';
-import Login from 'pages/Login';
-import MoviesList from 'pages/Movies/MoviesList';
-import QuotesList from 'pages/Quotes/QuotesList';
+import Login from 'pages/Login/Login';
+import MoviesList from 'pages/Movies/components/MoviesList';
+import QuotesList from 'pages/Quotes/components/QuotesList';
 import NotFound from 'components/NotFound';
 
 function App() {
