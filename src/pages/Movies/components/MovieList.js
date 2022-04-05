@@ -3,7 +3,7 @@ import React, { useContext, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import LanguageContext from 'context/language-context';
 import EditMovie from 'pages/Movies/components/EditMovie';
-import api from 'utilities/axios-hook';
+import api from 'utilities/axios';
 import AuthContext from 'context/auth-context';
 
 const Movie = ({ movieList }) => {

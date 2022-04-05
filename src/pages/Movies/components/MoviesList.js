@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 
 import MovieList from 'pages/Movies/components/MovieList';
-import api from 'utilities/axios-hook';
+import api from 'utilities/axios';
 import Loading from 'components/Loading';
 import DashboardLayout from 'pages/Dashboard/DashboardLayout';
 

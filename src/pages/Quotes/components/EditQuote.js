@@ -3,7 +3,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import EditQuoteModal from 'components/EditQuoteModal';
 import Loading from 'components/Loading';
-import api from 'utilities/axios-hook';
+import api from 'utilities/axios';
 import { useForm } from 'react-hook-form';
 import AuthContext from 'context/auth-context';
 
