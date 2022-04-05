@@ -4,7 +4,7 @@ import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import { useForm } from 'react-hook-form';
 import api from 'utilities/axios';
-import AuthContext from 'context/auth-context';
+import AuthContext from 'context/authContext';
 import Layout from 'components/Layout';
 
 const Login = () => {

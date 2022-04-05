@@ -5,8 +5,8 @@ import { useTranslation } from 'react-i18next';
 import QuoteModal from 'components/QuoteModal';
 import api from 'utilities/axios';
 import Loading from 'components/Loading';
-import LanguageContext from 'context/language-context';
-import AuthContext from 'context/auth-context';
+import LanguageContext from 'context/languageContext';
+import AuthContext from 'context/authContext';
 
 const AddQuote = (props) => {
     const { t } = useTranslation();

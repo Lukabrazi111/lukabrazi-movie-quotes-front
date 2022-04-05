@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
-import LanguageContext from 'context/language-context';
+import LanguageContext from 'context/languageContext';
 import EditQuote from 'pages/Quotes/components/EditQuote';
 import api from 'utilities/axios';
-import AuthContext from 'context/auth-context';
+import AuthContext from 'context/authContext';
 
 const QuoteList = ({ quotesList }) => {
     const { t } = useTranslation();

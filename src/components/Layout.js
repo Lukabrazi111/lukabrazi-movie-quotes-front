@@ -1,8 +1,8 @@
 import React, { useContext } from 'react';
 
 import { Link } from 'react-router-dom';
-import AuthContext from 'context/auth-context';
-import LanguageContext from 'context/language-context';
+import AuthContext from 'context/authContext';
+import LanguageContext from 'context/languageContext';
 
 const Layout = (props) => {
     const changeLanguageCtx = useContext(LanguageContext);

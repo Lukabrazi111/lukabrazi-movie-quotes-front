@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom';
 
 import api from 'utilities/axios';
 import Loading from 'components/Loading';
-import LanguageContext from 'context/language-context';
+import LanguageContext from 'context/languageContext';
 import Layout from 'components/Layout';
 
 const Quote = () => {

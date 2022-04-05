@@ -5,7 +5,7 @@ import EditQuoteModal from 'components/EditQuoteModal';
 import Loading from 'components/Loading';
 import api from 'utilities/axios';
 import { useForm } from 'react-hook-form';
-import AuthContext from 'context/auth-context';
+import AuthContext from 'context/authContext';
 
 const EditQuote = (props) => {
     const { t } = useTranslation();

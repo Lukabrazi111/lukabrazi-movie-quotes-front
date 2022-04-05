@@ -1,10 +1,10 @@
 import React, { useContext, useState } from 'react';
 
 import { useTranslation } from 'react-i18next';
-import LanguageContext from 'context/language-context';
+import LanguageContext from 'context/languageContext';
 import EditMovie from 'pages/Movies/components/EditMovie';
 import api from 'utilities/axios';
-import AuthContext from 'context/auth-context';
+import AuthContext from 'context/authContext';
 
 const Movie = ({ movieList }) => {
     const { t } = useTranslation();

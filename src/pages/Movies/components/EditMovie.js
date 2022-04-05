@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import EditMovieModal from 'components/EditMovieModal';
 import { useForm } from 'react-hook-form';
 import api from 'utilities/axios';
-import AuthContext from 'context/auth-context';
+import AuthContext from 'context/authContext';
 
 const EditMovie = (props) => {
     const { t } = useTranslation();

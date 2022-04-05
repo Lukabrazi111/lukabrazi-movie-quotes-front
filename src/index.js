@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import 'index.css';
 import App from 'App';
 import { BrowserRouter } from 'react-router-dom';
-import { AuthContextProvider } from 'context/auth-context';
+import { AuthContextProvider } from 'context/authContext';
 
 import Loading from 'components/Loading';
 import 'i18n';
