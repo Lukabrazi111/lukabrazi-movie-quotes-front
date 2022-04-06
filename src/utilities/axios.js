@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-    baseURL: 'https://movie-quotes-api.lukabrazi.redberryinternship.ge/api/',
+    baseURL: process.env.REACT_APP_AUTH_URL + '/api',
     withCredentials: true,
     headers: {
         Accept: 'application/json',
